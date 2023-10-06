@@ -1,7 +1,7 @@
 <!-- <detalle-cliente *ngIf="clienteSeleccionado" [cliente] ="clienteSeleccionado"></detalle-cliente> -->
-
+<app-shared-header></app-shared-header>
 <div class="card border-primary mb-3">
-  <div class="card-header">Cocteles</div>
+  <!-- <div class="card-header">Cocteles</div> -->
   <div class="card-body text-primary">
     <h5 class="card-title">Listado de Cocteles</h5>
 
@@ -27,7 +27,7 @@
 
 
     <table *ngIf="listadoCocteles.length > 0" class="table table-bordered table-striped" >
-      <thead>
+      <thead class="text-center">
         <tr>
           <th>Foto</th>
           <th>Nombre</th>
@@ -38,19 +38,19 @@
           <th >Detalles</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="text-center">
         <tr *ngFor="let coctel of listadoCocteles">
           <td>
 
             <img
               [src]="coctel.strDrinkThumb" alt="Sin foto" class="img-thumbnail rounded"
-              style="width:64px; cursor: pointer;">
+              style="width:60px; cursor: pointer;">
             </td>
           <td>{{coctel.strDrink}}</td>
           <td>{{coctel.strCategory}}</td>
           <td>{{coctel.strAlcoholic}}</td>
-          <td>{{coctel.dateModified | date}}</td>
-
+          <td *ngIf="coctel.dateModified">{{coctel.dateModified | date}}</td>
+          <td *ngIf="!coctel.dateModified" class="text-danger">Sin Registro</td>
           <td >
             <button type="button" name="eliminar"  class="btn btn-primary">Ver Detalles</button>
           </td>
