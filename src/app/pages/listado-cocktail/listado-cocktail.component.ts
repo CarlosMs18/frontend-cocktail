@@ -1,3 +1,6 @@
+
+
+import { Drink } from 'src/app/interfaces/listado-cocktail.interface';
 import { CocktailService } from './../../services/cocktail.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,16 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoCocktailComponent implements OnInit {
 
+  public listadoCocteles : Drink[] = [];
   constructor(
     private _cocktailService : CocktailService
-  ) {
-    this._cocktailService.getCocktails();
-  }
+  ) {}
 
   ngOnInit(): void {
-    this._cocktailService.getCocktails().subscribe(
-      datos => console.log(datos)
-    )
+    this._cocktailService.getCocktails()
+      .subscribe((data) => {
+       this.listadoCocteles = data.drinks;
+        console.log(this.listadoCocteles)
+
+      })
   }
 
 }
