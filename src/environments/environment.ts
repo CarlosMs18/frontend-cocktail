@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url : "www.thecocktaildb.com/api/json/v1/1"
+  base_url : "https://www.thecocktaildb.com/api/json/v1/1"
 };
 
 /*

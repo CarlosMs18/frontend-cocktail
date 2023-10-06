@@ -1,3 +1,4 @@
+import { CocktailService } from './../../services/cocktail.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoCocktailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _cocktailService : CocktailService
+  ) {
+    this._cocktailService.getCocktails();
+  }
 
   ngOnInit(): void {
+    this._cocktailService.getCocktails().subscribe(
+      datos => console.log(datos)
+    )
   }
 
 }
