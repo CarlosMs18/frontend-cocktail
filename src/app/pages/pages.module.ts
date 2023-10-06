@@ -1,13 +1,16 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListadoCocktailComponent } from './listado-cocktail/listado-cocktail.component';
-import { SharedModule } from '../shared/shared.module';
+import { EdicionCocktailComponent } from './listado-cocktail/edicion-cocktail/edicion-cocktail.component';
+
 
 
 
 @NgModule({
   declarations: [
-    ListadoCocktailComponent
+    ListadoCocktailComponent,
+    EdicionCocktailComponent
   ],
   imports: [
     CommonModule,
