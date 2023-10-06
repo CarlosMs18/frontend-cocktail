@@ -12,8 +12,11 @@ import { Component, OnInit } from '@angular/core';
 export class ListadoCocktailComponent implements OnInit {
 
   public listadoCocteles : Drink[] = [];
+  public posibleNull : boolean = false;
+  public cargando : boolean = false;
   constructor(
-    private _cocktailService : CocktailService
+    private _cocktailService : CocktailService,
+
   ) {}
 
   ngOnInit(): void {
@@ -29,13 +32,24 @@ export class ListadoCocktailComponent implements OnInit {
   presionarTecla(valor : string){
     if(valor == ''){
       this.listadoCocteles = [];
+      this.posibleNull = false;
       return;
     }
-
+    this.cargando = true;
+    this.posibleNull = false;
     this._cocktailService.getCocktails(valor)
       .subscribe({
         next : data => {
+          console.log(data.drinks)
+          if(data.drinks == null){
+            this.cargando = false;
+            this.posibleNull = true;
+            this.listadoCocteles = [];
+            return;
+
+          }
           this.listadoCocteles = data.drinks;
+          this.cargando = false;
 
         }
       })

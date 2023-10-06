@@ -4,6 +4,8 @@
   <div class="card-header">Cocteles</div>
   <div class="card-body text-primary">
     <h5 class="card-title">Listado de Cocteles</h5>
+
+
     <div class="my-2 text-left">
       <input
       type="text"
@@ -13,9 +15,18 @@
       #txtInput
       >
     </div>
-    <div *ngIf="listadoCocteles.length === 0" class="alert alert-info">
+
+   <div *ngIf="cargando" class="mt-1">
+
+    <button class="btn btn-primary" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <span role="status">Loading...</span>
+    </button>
+   </div>
+    <div *ngIf="listadoCocteles.length === 0 && !cargando && txtInput.value.length > 0" class="alert alert-info">
       No hay registros en la base de datos!
     </div>
+
 
     <table *ngIf="listadoCocteles.length > 0" class="table table-bordered table-striped" >
       <thead>
