@@ -17,11 +17,27 @@ export class ListadoCocktailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._cocktailService.getCocktails()
+   /*  this._cocktailService.getCocktails()
       .subscribe((data) => {
        this.listadoCocteles = data.drinks;
         console.log(this.listadoCocteles)
 
+      }) */
+  }
+
+
+  presionarTecla(valor : string){
+    if(valor == ''){
+      this.listadoCocteles = [];
+      return;
+    }
+
+    this._cocktailService.getCocktails(valor)
+      .subscribe({
+        next : data => {
+          this.listadoCocteles = data.drinks;
+
+        }
       })
   }
 

@@ -15,10 +15,11 @@ export class CocktailService {
   constructor(public _http : HttpClient) { }
 
 
-  getCocktails(){
+  getCocktails(valor : string){
     console.log('aca!')
-    console.log(`${this._base_url}/random.php`)
-    return this._http.get<{drinks:Drink[]}>("http://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
+    console.log(`${this._base_url}/search.php?f=${valor}`)
+    console.log("www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
+    return this._http.get<{drinks:Drink[]}>(`http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valor}`)
       .pipe(
         tap(datos => console.log(datos))
       )
