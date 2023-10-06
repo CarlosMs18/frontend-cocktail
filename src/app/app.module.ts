@@ -9,10 +9,12 @@ import {HttpClientModule} from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SharedHeaderComponent } from './shared-header/shared-header.component';
 registerLocaleData(localeES, 'es');
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SharedHeaderComponent
   ],
   imports: [
     BrowserModule,
