@@ -1,3 +1,5 @@
+import { NotificacionesService } from './../../services/notificaciones.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 import { Drink } from 'src/app/interfaces/listado-cocktail.interface';
@@ -16,17 +18,11 @@ export class ListadoCocktailComponent implements OnInit {
   public cargando : boolean = false;
   constructor(
     private _cocktailService : CocktailService,
+    private _notificacionesToastr : NotificacionesService
 
   ) {}
 
-  ngOnInit(): void {
-   /*  this._cocktailService.getCocktails()
-      .subscribe((data) => {
-       this.listadoCocteles = data.drinks;
-        console.log(this.listadoCocteles)
-
-      }) */
-  }
+  ngOnInit(): void {}
 
 
   presionarTecla(valor : string){
@@ -45,6 +41,7 @@ export class ListadoCocktailComponent implements OnInit {
             this.cargando = false;
             this.posibleNull = true;
             this.listadoCocteles = [];
+            this._notificacionesToastr.mensajeDeError(valor);
             return;
 
           }
