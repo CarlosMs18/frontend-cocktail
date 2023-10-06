@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-edicion-cocktail',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EdicionCocktailComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _modalService :ModalService) {
+
+   }
 
   ngOnInit(): void {
   }
 
+
+  cerrarModal() {
+    this._modalService.cerrarModal();
+
+
+  }
 }

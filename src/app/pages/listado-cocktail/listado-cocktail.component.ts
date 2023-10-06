@@ -1,10 +1,8 @@
 import { NotificacionesService } from './../../services/notificaciones.service';
-
-
-
 import { Drink } from 'src/app/interfaces/listado-cocktail.interface';
 import { CocktailService } from './../../services/cocktail.service';
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-listado-cocktail',
@@ -16,9 +14,11 @@ export class ListadoCocktailComponent implements OnInit {
   public listadoCocteles : Drink[] = [];
   public posibleNull : boolean = false;
   public cargando : boolean = false;
+  public drinkSeleccionado!: Drink;
   constructor(
     private _cocktailService : CocktailService,
-    private _notificacionesToastr : NotificacionesService
+    private _notificacionesToastr : NotificacionesService,
+    public _modalService : ModalService
 
   ) {}
 
@@ -50,6 +50,11 @@ export class ListadoCocktailComponent implements OnInit {
 
         }
       })
+  }
+
+  abrirModal(coctel : Drink){
+    this.drinkSeleccionado = coctel
+    this._modalService.abrirModal();
   }
 
 }
