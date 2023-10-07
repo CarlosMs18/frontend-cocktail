@@ -8,6 +8,8 @@ export interface Drink{
   strIBA: null,
   strAlcoholic: string,
   strGlass: string,
+  strInstructions:string,
+  strInstructionsES :string,
   strInstructionsFR: null,
   strInstructionsIT: string,
 /*   strInstructionsZHHANS: null,

@@ -1,5 +1,5 @@
 <!-- <detalle-cliente *ngIf="clienteSeleccionado" [cliente] ="clienteSeleccionado"></detalle-cliente> -->
-<app-edicion-cocktail></app-edicion-cocktail>
+<app-edicion-cocktail *ngIf="drinkSeleccionado" [coctel]="drinkSeleccionado"></app-edicion-cocktail>
 <app-shared-header></app-shared-header>
 <div class="card border-primary mb-3">
   <!-- <div class="card-header">Cocteles</div> -->
@@ -53,7 +53,7 @@
           <td *ngIf="coctel.dateModified">{{coctel.dateModified | date}}</td>
           <td *ngIf="!coctel.dateModified" class="text-danger">Sin Registro</td>
           <td >
-            <button type="button" name="eliminar"  class="btn btn-primary">Ver Detalles</button>
+            <button type="button" name="eliminar" (click)="abrirModal(coctel)" class="btn btn-primary">Ver Detalles</button>
           </td>
         </tr>
       </tbody>

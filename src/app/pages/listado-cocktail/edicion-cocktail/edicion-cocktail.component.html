@@ -1,11 +1,12 @@
-<div class="abrir-modal animacion fadeIn" >
+<div class="abrir-modal animacion fadeIn" *ngIf="_modalService.modal" >
   <div class="modal" tabindex="-1" role="dialog" style="display:block;">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"></h5>
-          <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <button (click)="cerrarModal()" type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+
+
           </button>
         </div>
         <div class="modal-body">
@@ -14,70 +15,29 @@
 
               <div class="col-sm">
                 <ul  class="list-group text-dark mb-3">
-                  <li class="list-group-item active"></li>
-                  <li class="list-group-item"></li>
-                  <li class="list-group-item"></li>
-                  <li class="list-group-item"></li>
-                  <li class="list-group-item"></li>
+                  <li class="list-group-item active">{{coctel.strAlcoholic}}</li>
+                  <li class="list-group-item">{{coctel.strCategory}}</li>
+                  <li class="list-group-item"><span class="text-primary fw-bold">Ingrediente 1</span>: {{coctel.strIngredient1}}</li>
+                  <li class="list-group-item"><span class="text-primary fw-bold">Ingrediente 2</span>: {{coctel.strIngredient2}}</li>
+                  <li class="list-group-item"><span class="text-primary fw-bold">Ingrediente 3</span>: {{coctel.strIngredient3}}</li>
+                  <li *ngIf="coctel.strIngredient4" class="list-group-item"><span class="text-primary fw-bold">Ingrediente 4</span>: {{coctel.strIngredient4}}</li>
                 </ul>
-
-                <div class="input-group mb-3" >
-                  <div class="custom-file">
-                    <input  type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                    <label class="custom-file-label" for="inputGroupFile04">Seleccionar foto</label>
-                  </div>
-                  <div class="input-group-append">
-                    <button   class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir</button>
-                  </div>
-                </div>
-
-
-
               </div>
 
               <div class="col-sm">
-                <img  src=""  class="img-thumbnail rounded">
-              </div>
-            </div>
-            <div class="row">
-              <button type="button" class="btn btn-success btn-sm" >crear factura</button>
-            </div>
-            <div class="row">
-
-              <div class="alert alert-info my-4" >
-
+                <img  [src]="coctel.strDrinkThumb"
+                class="img-thumbnail rounded">
               </div>
 
-              <table class="table table-bordered table-striped my-4">
-                <thead>
-                  <tr>
-                    <th>folio</th>
-                    <th>descripción</th>
-                    <th>fecha</th>
-                    <th>total</th>
-                    <th>detalle</th>
-                    <th >eliminar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr >
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-primary btn-sm" type="button"
-                      >ver</button></td>
-                      <td ><button class="btn btn-danger btn-sm" type="button" >eliminar</button></td>
-                  </tr>
-                </tbody>
-              </table>
-
+            <div>
+              <h3>Instrucciones</h3>
+              <p>{{coctel.strInstructions}}</p>
             </div>
+            </div>
+
           </div>
         </div>
-        <div class="modal-footer">
-          <button  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+
       </div>
     </div>
   </div>
