@@ -5,7 +5,8 @@ import { ListadoCocktailComponent } from './listado-cocktail/listado-cocktail.co
 
 const routes: Routes = [
   {path : '', component: ListadoCocktailComponent},
-  {path : 'cocktail', component : ListadoCocktailComponent}
+  {path : 'cocktail', component : ListadoCocktailComponent},
+  {path : '**',redirectTo:'/api/cocktail'}
 
 ];
 
