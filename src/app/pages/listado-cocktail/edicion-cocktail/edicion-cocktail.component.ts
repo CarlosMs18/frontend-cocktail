@@ -21,11 +21,13 @@ export class EdicionCocktailComponent implements OnInit, OnChanges {
 
   ngOnChanges():void{
     console.log(this.coctel)
+    console.log(this.coctel.strInstructionsIT)
     console.log('3')
   }
 
   ngOnInit(): void {
     console.log(this.coctel)
+
     console.log('2')
   }
 
